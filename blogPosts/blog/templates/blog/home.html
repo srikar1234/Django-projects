@@ -1,0 +1,23 @@
+<!-- Inheriting the base class html template from base.html -->
+{% extends 'blog/base.html'%}
+
+<!-- Making changes in the body tag content block -->
+{% block content %}
+    <!-- Write the python code using code blocks
+    and access variables sent through th posts key of context -->
+    {% for post in posts %}
+    <article class="media content-section">
+        <div class="media-body">
+          <div class="article-metadata">
+            <a class="mr-2" href="#">{{ post.author }}</a>
+            <small class="text-muted">{{ post.date_posted }}</small>
+          </div>
+          <h2><a class="article-title" href="#">{{ post.title }}</a></h2>
+          <p class="article-content">{{ post.content }}</p>
+        </div>
+    </article>
+    <!-- Use the end for code block to end the for loop -->
+    {% endfor %}
+
+<!-- Helps to understand which block we are closing -->
+{% endblock content%}
